@@ -467,7 +467,7 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
             // check maximum payload
             int maxLen = [self getMaxPayload:peripheral forType:writeType allowLongWrite:[allowLongWrite boolValue]];
             int dataLen = (int) [self convertHexToData:value].length;
-            if (dataLen > maxLen) {
+            if (dataLen > maxLen + 2) {
                 NSString* t = [writeTypeNumber intValue] == 0 ? @"withResponse" : @"withoutResponse";
                 NSString* a = [allowLongWrite boolValue] ? @", allowLongWrite" : @", noLongWrite";
                 NSString* b = [writeTypeNumber intValue] == 0 ? a : @"";
